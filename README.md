@@ -1,6 +1,6 @@
 # Nightreign Boss Weakness Explorer
 
-A single-page reference tool for Elden Ring: Nightreign that shows every boss's damage negations and status ailment resistances. Designed to be downloaded and used locally — no server required.
+A single-page reference tool for Elden Ring: Nightreign that shows every boss's damage negations and status ailment resistances.
 
 ---
 
@@ -13,7 +13,7 @@ icons/           — stat type icons (physical, slash, fire, etc.) and expeditio
 banners/         — expedition banner images shown on Night 3 section headers
 ```
 
-The app loads `boss.json` via `fetch()` at startup. Both files must be served from the same directory (opening `index.html` directly as a `file://` URL may block the fetch in some browsers — use a local server or browser extension that allows local fetches).
+The app loads `boss.json` via `fetch()` at startup from the git repo "https://raw.githubusercontent.com/SloppySushi/NightreignBossWealness/refs/heads/main/boss.json".
 
 ---
 
@@ -48,69 +48,9 @@ Hover over a stat icon to see its name. Hover over a boss cell in Simplified vie
 
 ---
 
-## Data format (`boss.json`)
-
-```jsonc
-{
-  "bosses": {
-    // Each key is a unique boss identifier.
-    // The value is an array of phase objects — one per phase/form.
-    "tricephalos": [
-      { "name": "Gladius", "physical": "0%", ..., "poison": 542, ... }
-    ],
-    // Multi-phase bosses have multiple entries in the array:
-    "night aspect ph1": [
-      { "name": "Heolstor Phase 1", "physical": "0%", ... }
-    ]
-  },
-
-  "expedition": {
-    // Each key is an expedition name.
-    // Night arrays may contain strings (single boss) or arrays (packs that spawn together).
-    "tricephalos": {
-      "first night":  [["demi-human queen", "demi-human swordmaster"], "bell bearing"],
-      "second night": ["fell omen", ["tree sentinel", "royal cavalry"]],
-      "third night":  ["tricephalos"],
-      "icon":   "icons/tricephalos-expedition-...-min.png",
-      "banner": "banners/gladius-everdark-4-nightreign-full.jpg"
-    }
-  },
-
-  "icon": {
-    // Stat-type icons used in Simplified view column headers
-    "physical": "icons/standard-damage-...",
-    "slash":    "icons/slash-damage-...",
-    ...
-  },
-
-  "jail bosses":  ["ancient dragon", "banished knights", ...],
-  "field bosses": ["ancestor spirit", "bell bearing", ...]
-}
-```
-
 **Stat values:**
 - Resistance/weakness columns (`physical` through `holy`) are percentage strings. Negative = weakness (boss takes more damage), positive = resistance (boss takes less). `0%` is neutral.
 - Ailment threshold columns (`poison` through `madness`) are integers. Lower = procs faster. `null` = immune.
-
----
-
-## Running locally
-
-The simplest approach is Python's built-in HTTP server:
-
-```bash
-# Python 3
-python3 -m http.server 8000
-# then open http://localhost:8000
-```
-
-Or use any static file server (VS Code Live Server, `npx serve`, Caddy, nginx, etc.).
-
----
-
-## Offline use
-
-Once loaded in the browser, the page works without a network connection (fonts may fall back to system fonts). Images (icons and banners) will show their text fallback if unreachable — this is intentional and does not affect any data.
 
 ---
 
