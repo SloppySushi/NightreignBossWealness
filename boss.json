@@ -17,6 +17,10 @@
 				"frostbite": 542,
 				"sleep": 154,
 				"madness": null
+			}, 
+			{
+				"icon" : "icons/tricephalos-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/gladius-everdark-4-nightreign-full.jpg"
 			}
 		],
 		"gaping jaw": [
@@ -36,9 +40,13 @@
 				"frostbite": 154,
 				"sleep": 154,
 				"madness": null
+			},
+			{
+				"icon" : "icons/gaping-jaw-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/adel-2-nightreign-full.jpg"
 			}
 		],
-		"sentient pest gnoster": [
+		"sentient pest": [
 			{
 				"name": "gnoster (moth)",
 				"physical": "-15%",
@@ -55,9 +63,7 @@
 				"frostbite": 154,
 				"sleep": 542,
 				"madness": null
-			}
-		],
-		"sentient pest faurtis": [
+			},
 			{
 				"name": "faurtis (scropion)",
 				"physical": "10%",
@@ -74,9 +80,7 @@
 				"frostbite": 154,
 				"sleep": 154,
 				"madness": null
-			}
-		],
-		"sentient pest animus": [
+			},
 			{
 				"name": "animus (red moth)",
 				"physical": "0%",
@@ -93,6 +97,10 @@
 				"frostbite": null,
 				"sleep": null,
 				"madness": null
+			},
+			{
+				"icon" : "icons/sentient-pest-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/gnoster-1-nightreign-full.jpg"
 			}
 		],
 		"augur": [
@@ -112,6 +120,10 @@
 				"frostbite": 252,
 				"sleep": null,
 				"madness": null
+			},
+			{
+				"icon" : "icons/augur-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/maris-2-nightreign-full.jpg"
 			}
 		],
 		"equilibrius beast": [
@@ -131,6 +143,10 @@
 				"frostbite": 252,
 				"sleep": null,
 				"madness": 154
+			},
+			{
+				"icon" : "icons/equilibrious-beast-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/libra-3-nightreign-full.jpg"
 			}
 		],
 		"darkdrift knight": [
@@ -150,6 +166,10 @@
 				"frostbite": 154,
 				"sleep": 154,
 				"madness": null
+			},
+			{
+				"icon" : "icons/darkdrift-knight-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/fulghor-2-nightreign-full.jpg"
 			}
 		],
 		"fissure in the fog": [
@@ -169,9 +189,13 @@
 				"frostbite": 542,
 				"sleep": 542,
 				"madness": null
+			},
+			{
+				"icon" : "icons/fissure-in-the-fog-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/caligo-nightreign-full.jpg"
 			}
 		],
-		"night aspect ph1": [
+		"night aspect": [
 			{
 				"name": "heolstor phase 1",
 				"physical": "0%",
@@ -188,9 +212,7 @@
 				"frostbite": null,
 				"sleep": 542,
 				"madness": null
-			}
-		],
-		"night aspect ph2": [
+			},
 			{
 			"name": "heolstor phase 2",
 			"physical": "0%",
@@ -207,6 +229,10 @@
 			"frostbite": null,
 			"sleep": 542,
 			"madness": null
+		},
+			{
+				"icon" : "icons/night-aspect-expedition-elden-ring-nightreign-wiki-guide-min.png",
+				"banner" : "banners/heolstor-3-nightreign-full.jpg"
 			}
 		],
 		"balancers": [
@@ -226,9 +252,13 @@
 				"frostbite": 252,
 				"sleep": 84,
 				"madness": null
+			},
+			{
+				"icon" : "icons/balancers-expedition-elden-ring-nightreign-wiki-guide.png",
+				"banner" : "banners/ballancers.png"
 			}
 		],
-		"dreglord ph1": [
+		"dreglord": [
 			{
 				"name": "straghess phase 1",
 				"physical": "0%",
@@ -245,9 +275,7 @@
 				"frostbite": 252,
 				"sleep": 252,
 				"madness": null
-			}
-		],
-		"dreglord ph2": [
+			},
 			{
 				"name": "straghess phase 2",
 				"physical": "5%",
@@ -264,11 +292,15 @@
 				"frostbite": 542,
 				"sleep": 999,
 				"madness": null
+			},
+			{
+				"icon" : "icons/dreglord-expedition-elden-ring-nightreign-wiki-guide.png",
+				"banner" : "banners/dreglord.png"
 			}
 		],
-		"demi-human queen": [
+		"demi-human": [
 			{
-				"name": "maggie",
+				"name": "queen",
 				"physical": "0%",
 				"slash": "-10%",
 				"strike": "0%",
@@ -283,11 +315,9 @@
 				"frostbite": 112,
 				"sleep": 112,
 				"madness": null
-			}
-		],
-		"demi-human swordmaster": [
+			},
 			{
-				"name": "yoda",
+				"name": "swordman",
 				"physical": "0%",
 				"slash": "-20%",
 				"strike": "0%",
@@ -359,9 +389,7 @@
 				"frostbite": 252,
 				"sleep": 154,
 				"madness": null
-			}
-		],
-		"royal cavalry": [
+			},
 			{
 				"name": "royal cavalry",
 				"physical": "10%",
@@ -513,7 +541,7 @@
 				"madness": null
 			}
 		],
-		"crucible knight spear": [
+		"crucible knight": [
 			{
 				"name": "crucible spear",
 				"physical": "35%",
@@ -530,24 +558,22 @@
 				"frostbite": 252,
 				"sleep": 252,
 				"madness": null
-			}
-		],
-		"crucible knight sword": [
+			},
 			{
-				"name": "crucible sword",
-				"physical": "35%",
-				"slash": "35%",
-				"strike": "35%",
-				"pierce": "35%",
-				"magic": "40%",
-				"fire": "20%",
-				"lightning": "20%",
-				"holy": "40%",
-				"poison": 252,
-				"rot": 252,
-				"bleed": null,
+				"name": "golden hippo",
+				"physical": "0%",
+				"slash": "-10%",
+				"strike": "0%",
+				"pierce": "0%",
+				"magic": "0%",
+				"fire": "-20%",
+				"lightning": "-20%",
+				"holy": "0%",
+				"poison": 154,
+				"rot": 154,
+				"bleed": 252,
 				"frostbite": 252,
-				"sleep": 252,
+				"sleep": null,
 				"madness": null
 			}
 		],
@@ -643,6 +669,23 @@
 				"bleed": 252,
 				"frostbite": 252,
 				"sleep": 154,
+				"madness": null
+			},
+			{
+				"name": "royal cavalry",
+				"physical": "10%",
+				"slash": "35%",
+				"strike": "10%",
+				"pierce": "0%",
+				"magic": "20%",
+				"fire": "20%",
+				"lightning": "40%",
+				"holy": "20%",
+				"poison": 112,
+				"rot": 112,
+				"bleed": 154,
+				"frostbite": 154,
+				"sleep": 112,
 				"madness": null
 			}
 		],
@@ -741,9 +784,9 @@
 				"madness": null
 			}
 		],
-		"godskin noble": [
+		"godskin duo": [
 			{
-				"name": "fatty",
+				"name": "noble",
 				"physical": "0%",
 				"slash": "-10%",
 				"strike": "35%",
@@ -758,11 +801,9 @@
 				"frostbite": 154,
 				"sleep": 112,
 				"madness": null
-			}
-		],
-		"godskin apostle": [
+			},
 			{
-				"name": "spaghetti",
+				"name": "apostle",
 				"physical": "0%",
 				"slash": "-10%",
 				"strike": "10%",
@@ -819,7 +860,7 @@
 		],
 		"death rite bird": [
 			{
-				"name": "death pigeon",
+				"name": "death bird",
 				"physical": "10%",
 				"slash": "10%",
 				"strike": "-40%",
@@ -836,7 +877,7 @@
 				"madness": null
 			}
 		],
-		"king of the storm": [
+		"nameless king": [
 			{
 				"name": "king of the storm",
 				"physical": "20%",
@@ -853,11 +894,9 @@
 				"frostbite": 252,
 				"sleep": null,
 				"madness": null
-			}
-		],
-		"nameless king": [
+			},
 			{
-				"name": "nameless king",
+				"name": "nameless",
 				"physical": "21%",
 				"slash": "22%",
 				"strike": "19%",
@@ -931,7 +970,7 @@
 				"madness": null
 			}
 		],
-		"curse blade": [
+		"curse and divine": [
 			{
 				"name": "curse blade",
 				"physical": "0%",
@@ -948,9 +987,7 @@
 				"frostbite": 112,
 				"sleep": 63,
 				"madness": null
-			}
-		],
-		"divine beast": [
+			},
 			{
 				"name": "divine beast",
 				"physical": "40%",
@@ -1064,6 +1101,45 @@
 				"madness": null
 			}
 		],
+		"crucible knight spear": [
+			{
+				"name": "crucible spear",
+				"physical": "35%",
+				"slash": "35%",
+				"strike": "35%",
+				"pierce": "35%",
+				"magic": "40%",
+				"fire": "20%",
+				"lightning": "20%",
+				"holy": "40%",
+				"poison": 252,
+				"rot": 252,
+				"bleed": null,
+				"frostbite": 252,
+				"sleep": 252,
+				"madness": null
+			}
+		],
+		"crucible knight sword": [
+			{
+				"name": "crucible sword",
+				"physical": "35%",
+				"slash": "35%",
+				"strike": "35%",
+				"pierce": "35%",
+				"magic": "40%",
+				"fire": "20%",
+				"lightning": "20%",
+				"holy": "40%",
+				"poison": 252,
+				"rot": 252,
+				"bleed": null,
+				"frostbite": 252,
+				"sleep": 252,
+				"madness": null
+			}
+		],
+
 		"banished knights": [
 			{
 				"name": "banished knights",
@@ -1466,74 +1542,54 @@
 	},
 	"expedition": {
 		"tricephalos" : {
-			"first night": [["demi-human queen","demi-human swordmaster"],"bell bearing"],
-			"second night": ["fell omen",["tree sentinel","royal cavalry"]],
-			"third night": ["tricephalos"],
-			"icon" : "icons/tricephalos-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/gladius-everdark-4-nightreign-full.jpg"
+			"first night": ["demi-human","bell bearing"],
+			"second night": ["fell omen","tree sentinel"],
+			"third night": ["tricephalos"]
 		},
 		"gaping jaw": {
 			"first night": ["duke freja","gaping dragon","night's cavalry","wormface","valiant gargoyle"],
-			"second night": ["ancient dragon","outland commander",["crucible knight sword","golden hippo"]],
-			"third night": ["gaping jaw"],
-			"icon" : "icons/gaping-jaw-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/adel-2-nightreign-full.jpg"
+			"second night": ["ancient dragon","outland commander","crucible knight"],
+			"third night": ["gaping jaw"]
 		},
 		"sentient pest": {
 			"first night": ["centipede demon","battlefield commander","smelter demon","tibia mariner","ulcerated tree spirit"],
-			"second night": [["draconic tree sentinel","royal cavalry"],"nox dragonkin","great wyrm"],
-			"third night": [["sentient pest gnoster","sentient pest faurtis","sentient pest animus"]],
-			"icon" : "icons/sentient-pest-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/gnoster-1-nightreign-full.jpg"
+			"second night": ["draconic tree sentinel","nox dragonkin","great wyrm"],
+			"third night": ["sentient pest"]
 		},
 		"augur": {
 			"first night": ["grafted monarch","gaping dragon","wormface","smelter demon","valiant gargoyle"],
-			"second night": [["godskin noble","godskin apostle"],"fallingstar beast",["tree sentinel","royal cavalry"]],
-			"third night": ["augur"],
-			"icon" : "icons/augur-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/maris-2-nightreign-full.jpg"
+			"second night": ["godskin duo","fallingstar beast","tree sentinel"],
+			"third night": ["augur"]
 		},
 		"equilibrius beast": {
 			"first night": ["centipede demon","tibia mariner","battlefield commander","royal revenant","duke freja"],
-			"second night": [["crucible knight sword","golden hippo"],["godskin noble","godskin apostle"],"death rite bird"],
-			"third night": ["equilibrius beast"],
-			"icon" : "icons/equilibrious-beast-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/libra-3-nightreign-full.jpg"
+			"second night": ["crucible knight","godskin duo","death rite bird"],
+			"third night": ["equilibrius beast"]
 		},
 		"darkdrift knight": {
 			"first night": ["wormface","gaping dragon","centipede demon","royal revenant","night's cavalry"],
-			"second night": [["king of the storm","nameless king"],"outland commander","nox dragonkin"],
-			"third night": ["darkdrift knight"],
-			"icon" : "icons/darkdrift-knight-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/fulghor-2-nightreign-full.jpg"
+			"second night": ["nameless king","outland commander","nox dragonkin"],
+			"third night": ["darkdrift knight"]
 		},
 		"fissure in the fog": {
 			"first night": ["smelter demon","duke freja","grafted monarch","ulcerated tree spirit","tibia mariner"],
-			"second night": [["draconic tree sentinel","royal cavalry"],["godskin noble","godskin apostle"],"dancer of the boreal valley"],
-			"third night": ["fissure in the fog"],
-			"icon" : "icons/fissure-in-the-fog-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/caligo-nightreign-full.jpg"
+			"second night": ["draconic tree sentinel","godskin duo","dancer of the boreal valley"],
+			"third night": ["fissure in the fog"]
 		},
 		"night aspect": {
-			"first night": ["smelter demon","centipede demon",["demi-human queen","demi-human swordmaster"],"valiant gargoyle","night's cavalry","royal revenant","battlefield commander","bell bearing","grafted monarch","gaping dragon","wormface","tibia mariner","ulcerated tree spirit","duke freja"],
-			"second night": ["great wyrm","fell omen","nox dragonkin","ancient dragon","dancer of the boreal valley","fallingstar beast",["king of the storm","nameless king"],["crucible knight sword","golden hippo"],["draconic tree sentinel","royal cavalry"],"death rite bird","outland commander",["tree sentinel","royal cavalry"],["godskin noble","godskin apostle"]],
-			"third night": [["night aspect ph1","night aspect ph2"]],
-			"icon" : "icons/night-aspect-expedition-elden-ring-nightreign-wiki-guide-min.png",
-			"banner" : "banners/heolstor-3-nightreign-full.jpg"
+			"first night": ["smelter demon","centipede demon","demi-human","valiant gargoyle","night's cavalry","royal revenant","battlefield commander","bell bearing","grafted monarch","gaping dragon","wormface","tibia mariner","ulcerated tree spirit","duke freja"],
+			"second night": ["great wyrm","fell omen","nox dragonkin","ancient dragon","dancer of the boreal valley","fallingstar beast","nameless king","crucible knight","draconic tree sentinel","death rite bird","outland commander","tree sentinel","godskin duo"],
+			"third night": ["night aspect"]
 		},
 		"balancers": {
-			"first night": ["demon prince",["curse blade","divine beast"]],
+			"first night": ["demon prince","curse and divine"],
 			"second night": ["demon prince","lord of blood"],
-			"third night": ["balancers"],
-			"icon" : "icons/balancers-expedition-elden-ring-nightreign-wiki-guide.png",
-			"banner" : "banners/ballancers.png"
+			"third night": ["balancers"]
 		},
 		"dreglord": {
 			"first night": ["death knight","great red bear"],
 			"second night": ["knight artorias","divine beast dancing lion"],
-			"third night": [["dreglord ph1","dreglord ph2"]],
-			"icon" : "icons/dreglord-expedition-elden-ring-nightreign-wiki-guide.png",
-			"banner" : "banners/dreglord.png"
+			"third night": ["dreglord"]
 		}
 	},
 	"icon" : {
@@ -1562,9 +1618,7 @@
 		"crucible knight sword",
 		"crystalians",
 		"death rite bird",
-		["godskin noble","godskin apostle"],
-		"godskin apostle",
-		"godskin noble",
+		"godskin duo",
 		"grave warden duelist",
 		"nox dragonkin",
 		"nox warriors",
@@ -1578,7 +1632,7 @@
 		"black blade kindred",
 		"black knife assassin",
 		"death rite bird",
-		"demi-human queen",
+		"demi-human",
 		"draconic tree sentinel",
 		"elder lion",
 		"erdtree avatar",
