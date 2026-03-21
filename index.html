@@ -84,15 +84,29 @@
     }
 
     /* ─── Nav Tabs ───────────────────────────────────────────── */
-    .tabs { display: flex; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
     .tab-btn {
-      padding: 0.48rem 1.2rem;
+      padding: 0.48rem 1.1rem;
       background: transparent; border: none;
       color: var(--muted);
-      font-family: 'Cinzel', serif; font-size: 0.7rem; letter-spacing: 0.09em;
-      cursor: pointer; border-right: 1px solid var(--border); transition: all 0.18s;
+      font-family: 'Cinzel', serif; font-size: 0.68rem; letter-spacing: 0.08em;
+      cursor: pointer;
+      border-right: 1px solid var(--border);
+      border-top: 1px solid transparent; /* becomes var(--border) on wrapped row via sibling trick below */
+      transition: all 0.18s;
       text-transform: uppercase; white-space: nowrap;
     }
+    /* When tabs wrap onto a second row every button in that row needs a top
+       border.  We approximate this by giving ALL buttons a top border and
+       zeroing it on the very first button — close enough for the 2-row case. */
+    .tab-btn { border-top: 1px solid var(--border); }
+    .tab-btn:first-child { border-top: none; }
     .tab-btn:last-child { border-right: none; }
     .tab-btn.active    { background: var(--glow); color: var(--accent); }
     .tab-btn:hover:not(.active) { color: var(--text); background: rgba(255,255,255,0.03); }
@@ -398,6 +412,7 @@
       <button class="tab-btn" data-tab="overview">All Night 3 Bosses</button>
       <button class="tab-btn" data-tab="jail">Jail Bosses</button>
       <button class="tab-btn" data-tab="field">Field Bosses</button>
+      <button class="tab-btn" data-tab="castle">Castle Bosses</button>
     </nav>
     <div class="seg-wrap">
       <span class="seg-label">View</span>
@@ -475,6 +490,15 @@
     </div>
   </div>
 
+  <!-- ═══════════ CASTLE BOSSES PANEL ═══════════ -->
+  <div class="panel" id="panel-castle">
+    <div id="castle-content">
+      <div class="empty-state">
+        <p>Loading castle bosses…</p>
+      </div>
+    </div>
+  </div>
+
 </main>
 
 <script>
@@ -483,12 +507,13 @@
 // ════════════════════════════════════════════════════════════════
 const DATA_URL = 'https://raw.githubusercontent.com/SloppySushi/NightreignBossWealness/refs/heads/main/boss.json';
 
-let DATA        = null;
-let BOSSES      = null;
-let EXPEDITIONS = null;
-let ICONS       = {};
-let JAIL_BOSSES  = [];
-let FIELD_BOSSES = [];
+let DATA         = null;
+let BOSSES       = null;
+let EXPEDITIONS  = null;
+let ICONS        = {};
+let JAIL_BOSSES  = {};   // { "weak reward": [...], "strong reward": [...] }
+let FIELD_BOSSES = {};   // { "normal": [...], "major": [...] }
+let CASTLE_BOSSES = {};  // { "area": [...], "basement": [...], "top": [...] }
 
 const PCT_STATS  = ['physical','slash','strike','pierce','magic','fire','lightning','holy'];
 const AILM_STATS = ['poison','rot','bleed','frostbite','sleep','madness'];
@@ -567,6 +592,7 @@ const sortStates = {
   overview:     { col: null, dir: null },
   jail:         { col: null, dir: null },
   field:        { col: null, dir: null },
+  castle:       { col: null, dir: null },
 };
 
 const iconLoadFailed = new Set();
@@ -997,36 +1023,89 @@ function renderOverview() {
 }
 
 // ════════════════════════════════════════════════════════════════
-// JAIL / FIELD BOSSES PANELS (shared renderer)
+// JAIL / FIELD / CASTLE PANELS  (shared sectioned renderer)
 // ════════════════════════════════════════════════════════════════
-function renderFlatBossPanel(bossKeys, containerId, panelId) {
+/*
+ * Each of these panels receives a dict  { sectionName: [bossKey, …] }.
+ * We map the sections onto the same night-separator colour scheme the
+ * expedition table uses:
+ *
+ *   Jail   — weak reward → n1 (green), strong reward → n2 (blue)
+ *   Field  — normal      → n1 (green), major          → n2 (blue)
+ *   Castle — area        → n1 (green), basement        → n2 (blue), top → n3 (gold)
+ *
+ * Any section key not in the explicit map falls back to n1.
+ * The colour, label emoji and nightNum are derived from a small config
+ * table keyed on panelId so everything stays DRY.
+ */
+const SECTION_CFG = {
+  jail: [
+    { key: 'weak reward',   nightNum: 1 },
+    { key: 'strong reward', nightNum: 2 },
+  ],
+  field: [
+    { key: 'normal', nightNum: 1 },
+    { key: 'major',  nightNum: 2 },
+  ],
+  castle: [
+    { key: 'area',     nightNum: 1 },
+    { key: 'basement', nightNum: 2 },
+    { key: 'top',      nightNum: 3 },
+  ],
+};
+
+function renderSectionedPanel(rawData, containerId, panelId) {
   const container = document.getElementById(containerId);
-  if (!bossKeys || !bossKeys.length) {
+
+  // Normalise: accept both plain array (legacy) and dict
+  const dataDict = (Array.isArray(rawData) || !rawData || !Object.keys(rawData ?? {}).length)
+    ? null : rawData;
+
+  if (!dataDict) {
     container.innerHTML = `<div class="empty-state"><p>No boss data available.</p></div>`;
     return;
   }
 
-  const st = sortStates[panelId];
-  const sorted = sortBossKeys(bossKeys, st);
+  const st  = sortStates[panelId];
+  const cfg = SECTION_CFG[panelId] ?? [];
 
-  // Group all as a single "section" with nightNum=1 styling
-  const nightGroups = [{
-    nightNum: 1,
-    label: panelId === 'jail' ? 'Jail Bosses' : 'Field Bosses',
-    bossKeys: sorted,
-  }];
+  // Build ordered nightGroups following the section config; append any
+  // extra keys that appear in the data but aren't in the config.
+  const handled = new Set();
+  const nightGroups = [];
+
+  for (const { key, nightNum } of cfg) {
+    if (!(key in dataDict)) continue;
+    handled.add(key);
+    nightGroups.push({
+      nightNum,
+      label: `${cap(key)}`,
+      bossKeys: sortBossKeys(dataDict[key] ?? [], st),
+    });
+  }
+  // Fallback: unknown keys rendered as n1
+  for (const [key, bossKeys] of Object.entries(dataDict)) {
+    if (handled.has(key)) continue;
+    nightGroups.push({ nightNum: 1, label: cap(key), bossKeys: sortBossKeys(bossKeys ?? [], st) });
+  }
+
+  if (!nightGroups.length) {
+    container.innerHTML = `<div class="empty-state"><p>No boss data available.</p></div>`;
+    return;
+  }
 
   container.innerHTML = buildLegend() + buildTable(nightGroups, {
-    mode: globalMode, panelId, sortState: st
+    mode: globalMode, panelId, sortState: st,
   });
 
-  const onSort = () => renderFlatBossPanel(bossKeys, containerId, panelId);
+  const onSort = () => renderSectionedPanel(rawData, containerId, panelId);
   attachSortListeners(containerId, panelId, onSort);
   attachCollapsibleSections(containerId);
 }
 
-function renderJailBosses()  { renderFlatBossPanel(JAIL_BOSSES,  'jail-content',  'jail');  }
-function renderFieldBosses() { renderFlatBossPanel(FIELD_BOSSES, 'field-content', 'field'); }
+function renderJailBosses()   { renderSectionedPanel(JAIL_BOSSES,   'jail-content',   'jail');   }
+function renderFieldBosses()  { renderSectionedPanel(FIELD_BOSSES,  'field-content',  'field');  }
+function renderCastleBosses() { renderSectionedPanel(CASTLE_BOSSES, 'castle-content', 'castle'); }
 
 // ════════════════════════════════════════════════════════════════
 // GLOBAL VIEW TOGGLE
@@ -1045,11 +1124,13 @@ document.getElementById('global-toggle').addEventListener('click', e => {
     if (selectedExp) renderExpedition();
     if (filterN1 && (filterN1.value || filterN2.value)) renderN3Filter();
     if (overviewRendered) renderOverview();
-    // Re-render jail/field if their panels have been viewed
-    const jailPanel  = document.getElementById('panel-jail');
-    const fieldPanel = document.getElementById('panel-field');
-    if (jailPanel.dataset.rendered)  renderJailBosses();
-    if (fieldPanel.dataset.rendered) renderFieldBosses();
+    // Re-render flat panels if their panels have been viewed
+    const jailPanel   = document.getElementById('panel-jail');
+    const fieldPanel  = document.getElementById('panel-field');
+    const castlePanel = document.getElementById('panel-castle');
+    if (jailPanel.dataset.rendered)   renderJailBosses();
+    if (fieldPanel.dataset.rendered)  renderFieldBosses();
+    if (castlePanel.dataset.rendered) renderCastleBosses();
   }
 });
 
@@ -1076,6 +1157,10 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
       panel.dataset.rendered = '1';
       renderFieldBosses();
     }
+    if (btn.dataset.tab === 'castle' && !panel.dataset.rendered) {
+      panel.dataset.rendered = '1';
+      renderCastleBosses();
+    }
   });
 });
 
@@ -1096,7 +1181,7 @@ function initStickyHeaders() {
 
 (function wireSticky() {
   const containers = document.querySelectorAll(
-    '#expedition-display, #night3-results, #overview-content, #jail-content, #field-content'
+    '#expedition-display, #night3-results, #overview-content, #jail-content, #field-content, #castle-content'
   );
   const mo = new MutationObserver(() => {
     requestAnimationFrame(initStickyHeaders);
@@ -1128,8 +1213,17 @@ async function bootstrap() {
   BOSSES      = DATA.bosses      ?? {};
   EXPEDITIONS = DATA.expedition  ?? {};
   ICONS       = DATA.icon        ?? {};
-  JAIL_BOSSES  = DATA['jail bosses']  ?? [];
-  FIELD_BOSSES = DATA['field bosses'] ?? [];
+
+  // jail bosses and field bosses may be a plain array (old format) or a dict
+  // of named sections (new format).  Wrap arrays so the rest of the code
+  // always receives a dict.
+  const rawJail   = DATA['jail bosses']  ?? {};
+  const rawField  = DATA['field bosses'] ?? {};
+  const rawCastle = DATA['castle bosses'] ?? DATA['castle'] ?? {};
+
+  JAIL_BOSSES   = Array.isArray(rawJail)   ? { all: rawJail   } : rawJail;
+  FIELD_BOSSES  = Array.isArray(rawField)  ? { all: rawField  } : rawField;
+  CASTLE_BOSSES = Array.isArray(rawCastle) ? { all: rawCastle } : rawCastle;
 
   // Hide loading overlay
   overlay.style.display = 'none';
