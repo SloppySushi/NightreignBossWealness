@@ -860,7 +860,7 @@
 		],
 		"death rite bird": [
 			{
-				"name": "death bird",
+				"name": "death pigeon",
 				"physical": "10%",
 				"slash": "10%",
 				"strike": "-40%",
@@ -1520,6 +1520,25 @@
 				"madness": null
 			}
 		],
+		"trolls": [
+			{
+				"name": "ugly butts",
+				"physical": "0%",
+				"slash": "-10%",
+				"strike": "0%",
+				"pierce": "0%",
+				"magic": "0%",
+				"fire": "0%",
+				"lightning": "0%",
+				"holy": "0%",
+				"poison": 112,
+				"rot": 112,
+				"bleed": 112,
+				"frostbite": 154,
+				"sleep": 20,
+				"madness": null
+			}
+		],
 		"black blade kindred": [
 			{
 				"name": "black blade kindred",
@@ -1608,45 +1627,84 @@
 		"sleep": "icons/sleep-status-effect-elden-ring-nightreign-wiki-guide-100px.png",
 		"madness": "icons/madness-status-effect-elden-ring-nightreign-wiki-guide-100px.png"
 	},
-	"jail bosses" : [
-		"ancient dragon",
-		"banished knights",
-		"beastly brigade",
-		"beastmen of farum azula",
-		"bloodhound knight",
-		"crucible knight spear",
-		"crucible knight sword",
-		"crystalians",
-		"death rite bird",
-		"godskin duo",
-		"grave warden duelist",
-		"nox dragonkin",
-		"nox warriors",
-		"omen",
-		"stoneskin lords"
-	],
-	"field bosses" : [
-		"ancestor spirit",
-		"ancient hero of zamor",
-		"bell bearing",
-		"black blade kindred",
-		"black knife assassin",
-		"death rite bird",
-		"demi-human",
-		"draconic tree sentinel",
-		"elder lion",
-		"erdtree avatar",
-		"flying dragon of the hills",
-		"golden hippo",
-		"grafted scion",
-		"leonine misbegotten",
-		"magma wyrm",
-		"miranda blossom",
-		"night's cavalry",
-		"red wolf",
-		"royal carian knight",
-		"royal revenant",
-		"tree sentinel",
-		"ulcerated tree spirit"
-	]
+	"jail bosses" : {
+		"weak reward" : [
+			"banished knights",
+			"beastly brigade",
+			"beastmen of farum azula",
+			"bloodhound knight",
+			"crystalians",
+			"grave warden duelist",
+			"nox warriors",
+			"omen",
+			"stoneskin lords"
+		],
+		"strong reward" : [
+			"ancient dragon",
+			"crucible knight spear",
+			"crucible knight sword",
+			"death rite bird",
+			"nox dragonkin",
+			"godskin duo"
+		]
+	},
+	"field bosses" : {
+		"normal" : [
+			"ancient hero of zamor",
+			"black knife assassin",
+			"demi-human",
+			"elder lion",
+			"golden hippo",
+			"grafted scion",
+			"leonine misbegotten",
+			"miranda blossom",
+			"night's cavalry",
+			"red wolf",
+			"royal revenant"
+		],
+		"major" : [
+			"ancestor spirit",
+			"bell bearing",
+			"black blade kindred",
+			"death rite bird",
+			"draconic tree sentinel",
+			"erdtree avatar",
+			"flying dragon of the hills",
+			"magma wyrm",
+			"royal carian knight",
+			"tree sentinel",
+			"ulcerated tree spirit"
+			
+		]
+	},
+	"castle" : {
+		"area" : [
+			"banished knights",
+			"elder lion",
+			"crucible knight spear",
+			"crucible knight sword",
+			"trolls"
+		],
+		"basement" : [
+			"grafted scion",
+			"black knife assassin",
+			"red wolf",
+			"ancient hero of zamor",
+			"leonine misbegotten",
+			"royal revenant",
+			"bell bearing"
+		],
+		"top" : [
+			"death rite bird",
+			"black blade kindred",
+			"draconic tree sentinel",
+			"royal carian knight",
+			"tree sentinel",
+			"magma wyrm",
+			"erdtree avatar",
+			"ancestor spirit",
+			"ulcerated tree spirit",
+			"bell bearing"
+		]
+	}
 }
