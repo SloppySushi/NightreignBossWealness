@@ -23,7 +23,7 @@
 				"banner" : "banners/gladius-everdark-4-nightreign-full.jpg"
 			}
 		],
-		"gaping jaw": [
+		"gaping joe": [
 			{
 				"name": "adel",
 				"physical": "0%",
@@ -1565,10 +1565,10 @@
 			"second night": ["fell omen","tree sentinel"],
 			"third night": ["tricephalos"]
 		},
-		"gaping jaw": {
+		"gaping joe": {
 			"first night": ["duke freja","gaping dragon","night's cavalry","wormface","valiant gargoyle"],
 			"second night": ["ancient dragon","outland commander","crucible knight"],
-			"third night": ["gaping jaw"]
+			"third night": ["gaping joe"]
 		},
 		"sentient pest": {
 			"first night": ["centipede demon","battlefield commander","smelter demon","tibia mariner","ulcerated tree spirit"],
