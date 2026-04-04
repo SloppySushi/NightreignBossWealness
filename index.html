@@ -945,7 +945,7 @@ function renderN3Filter() {
   let bossList   = sortBossKeys([...matchedN3.keys()], st);
   const nightGroups = bossList.map(bossKey => ({
     nightNum: 3,
-    label: `🌕 ${cap(bossKey)} — from: ${matchedN3.get(bossKey).map(cap).join(', ')}`,
+    label: `🌕 ${cap(bossKey)}`,
     bossKeys: [bossKey],
     bannerUrl: bossMeta(bossKey).banner ?? null,
   }));
