@@ -1539,6 +1539,25 @@
 				"madness": null
 			}
 		],
+		"astel of the void": [
+			{
+				"name": "astel of the void",
+				"physical": "10%",
+				"slash": "10%",
+				"strike": "10%",
+				"pierce": "10%",
+				"magic": "40%",
+				"fire": "40%",
+				"lightning": "40%",
+				"holy": "40%",
+				"poison": 252,
+				"rot": 252,
+				"bleed": 252,
+				"frostbite": null,
+				"sleep": null,
+				"madness": null
+			}
+		],
 		"black blade kindred": [
 			{
 				"name": "black blade kindred",
@@ -1673,7 +1692,8 @@
 			"magma wyrm",
 			"royal carian knight",
 			"tree sentinel",
-			"ulcerated tree spirit"
+			"ulcerated tree spirit",
+			"astel of the void"
 			
 		]
 	},
