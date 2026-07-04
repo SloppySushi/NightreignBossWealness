@@ -1683,6 +1683,7 @@
 		],
 		"major" : [
 			"ancestor spirit",
+			"astel of the void",
 			"bell bearing",
 			"black blade kindred",
 			"death rite bird",
@@ -1692,9 +1693,7 @@
 			"magma wyrm",
 			"royal carian knight",
 			"tree sentinel",
-			"ulcerated tree spirit",
-			"astel of the void"
-			
+			"ulcerated tree spirit"
 		]
 	},
 	"castle" : {
